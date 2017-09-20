@@ -12,7 +12,7 @@ angular.module('app').directive('ngZumbiSubmit', function() {
                     $scope.submit();
                 }
                 else {
-                    alert('formulário inválido');
+                    alert('formulário inválido!');
                 }
             });
         }

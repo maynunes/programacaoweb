@@ -6,6 +6,7 @@
     <table ng-if="ocorrencias.length > 0" class="table">
         <thead>
             <th>CEP</th>
+            <th>Logradouro</th>
             <th>Bairro</th>
             <th>Cidade</th>
             <th>CPF</th>
@@ -14,6 +15,7 @@
         <tbody>
             <tr ng-repeat="ocorrencia in ocorrencias">
                 <td>{{ocorrencia.cep}}</td>
+                <td>{{ocorrencia.logradouro | upper}}</td>
                 <td>{{ocorrencia.bairro | upper}}</td>
                 <td>{{ocorrencia.cidade | upper}}</td>
                 <td>{{ocorrencia.cpf}}</td>
@@ -25,6 +27,10 @@
         <div class="form-group">
             <label>CEP</label>
             <input ng-blur ng-model="ocorrencia.cep" ng-cep-validator type="text" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label>Logradouro</label>
+            <input ng-blur ng-model="ocorrencia.logradouro" ng-logradouro-validator required type="text" class="form-control" />
         </div>
         <div class="form-group">
             <label>Bairro</label>
@@ -42,6 +48,8 @@
             <label>Número da casa</label>
             <input ng-blur ng-model="ocorrencia.numero" required type="text" class="form-control" />
         </div>
+       
+        
         <ng-zumbi-submit submit="adiciona(ocorrencia)"></ng-zumbi-submit>
     </form>
 </div>
